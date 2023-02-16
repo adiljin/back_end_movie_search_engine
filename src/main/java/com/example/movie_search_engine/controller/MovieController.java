@@ -15,6 +15,7 @@ import java.util.List;
 @RequestMapping("/movies")
 @CrossOrigin("http://localhost:3000/")
 public class MovieController {
+    private String apikey = "339381a4";
 
     @Autowired
     private MovieRepo movieRepo;
@@ -27,7 +28,8 @@ public class MovieController {
 
     @GetMapping("/{title}")
     public List<Movie> searchMovie(@PathVariable String title) {
-        String url = UriComponentsBuilder.fromUriString("http://www.omdbapi.com/?apikey=339381a4&")
+        String url = UriComponentsBuilder.fromUriString("http://www.omdbapi.com/?apikey="+apikey)
+                .queryParam("&")
                 .queryParam("t", title)
                 .toUriString();
 
