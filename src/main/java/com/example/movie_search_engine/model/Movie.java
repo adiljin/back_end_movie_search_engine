@@ -60,5 +60,9 @@ public class Movie {
         return title;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     // getters and setters
 }

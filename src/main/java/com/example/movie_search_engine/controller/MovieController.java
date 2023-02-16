@@ -9,6 +9,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -45,6 +46,12 @@ public class MovieController {
     Movie newMovie(@RequestBody List<Movie> newMovie){
         Movie movie = newMovie.get(0);
         return movieRepo.save(movie);
+    }
+
+    @DeleteMapping("/{id}")
+    String deleteMovie(@PathVariable Long id){
+        movieRepo.deleteById(id);
+        return "Customer with id " + id + " has been deleted";
     }
 
 }
