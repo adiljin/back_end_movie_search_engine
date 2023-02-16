@@ -20,7 +20,7 @@ public class MovieController {
     private MovieRepo movieRepo;
     private RestTemplate restTemplate = new RestTemplate();
 
-    @GetMapping()
+    @GetMapping("/get")
     public List<Movie> searchMovieStatic() {
         return movieRepo.findAll();
     }
